@@ -10837,7 +10837,6 @@ p {
   line-height: 1.75;
 }
 
-/* --- 你原本提供的基礎樣式 --- */
 .page-section {
   padding: 6rem 0;
 }
@@ -10847,51 +10846,45 @@ p {
   margin-bottom: 1rem;
 }
 
-/* --- 新增：遊戲區塊專屬樣式 --- */
 .game-icon-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* 圖標之間的間距 */
+  gap: 20px;
   justify-content: center;
 }
 
-/* 遊戲項目：桌機上平分 5 等分，手機上自動變大換行 */
 .game-item {
-  flex: 0 0 calc(20% - 20px); /* 5 欄佈局：100% / 5 = 20%，再扣除 gap 間距 */
-  min-width: 120px; /* 防止在小螢幕上縮得太小 */
-  max-width: 160px; /* 限制最大寬度，讓圖標大小適中圓潤 */
+  flex: 0 0 calc(20% - 20px);
+  min-width: 120px;
+  max-width: 160px;
   text-align: center;
 }
 
-/* 遊戲圖標本體 */
 .game-icon {
   width: 100%;
-  aspect-ratio: 1 / 1; /* 強制正方形 */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 24px; /* 像手機 App Icon 那樣的漂亮圓角 */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* 淡淡的陰影增加立體感 */
-  cursor: default; /* 鼠標維持普通箭頭，提示使用者「這不能點擊」 */
+  border-radius: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: default;
 
-  /* 動畫流暢度設定 */
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
   box-shadow 0.3s ease;
 }
 
-/* 關鍵：鼠標放上去的浮動效果（向上微移 + 放大 + 陰影加深） */
 .game-icon:hover {
-  transform: translateY(-8px) scale(1.08); /* 向上浮動 8px 且放大 1.08 倍 */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* 陰影變深、範圍變大，製造懸空感 */
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
-/* 針對手機平板等小螢幕的優化（RWD） */
 @media (max-width: 768px) {
   .game-item {
-    flex: 0 0 calc(33.33% - 20px); /* 手機平板上一排顯示 3 個 */
+    flex: 0 0 calc(33.33% - 20px);
   }
 }
 @media (max-width: 480px) {
   .game-item {
-    flex: 0 0 calc(50% - 20px); /* 超小手機一排顯示 2 個 */
+    flex: 0 0 calc(50% - 20px);
   }
 }
 
@@ -10900,6 +10893,14 @@ p {
     padding: 9rem 0;
   }
 }
+
+.fandom-img-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
 .btn-xl {
   padding: 1.25rem 2.5rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -11122,9 +11123,7 @@ header.masthead .masthead-heading {
   margin-bottom: 2rem;
   font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-.portfolio-modal .modal-content p {
-  margin-bottom: 2rem;
-}
+
 .portfolio-modal .modal-content ul.list-inline {
   margin-bottom: 2rem;
 }
@@ -11142,191 +11141,6 @@ header.masthead .masthead-heading {
 }
 .portfolio-modal .close-modal:hover {
   opacity: 0.3;
-}
-
-.timeline {
-  position: relative;
-  padding: 0;
-  list-style: none;
-}
-.timeline:before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 40px;
-  width: 2px;
-  margin-left: -1.5px;
-  content: "";
-  background-color: #e9ecef;
-}
-.timeline > li {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 50px;
-}
-.timeline > li:after, .timeline > li:before {
-  display: table;
-  content: " ";
-}
-.timeline > li:after {
-  clear: both;
-}
-.timeline > li .timeline-panel {
-  position: relative;
-  float: right;
-  width: 100%;
-  padding: 0 20px 0 100px;
-  text-align: left;
-}
-.timeline > li .timeline-panel:before {
-  right: auto;
-  left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
-}
-.timeline > li .timeline-panel:after {
-  right: auto;
-  left: -14px;
-  border-right-width: 14px;
-  border-left-width: 0;
-}
-.timeline > li .timeline-image {
-  position: absolute;
-  z-index: 100;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  margin-left: 0;
-  text-align: center;
-  color: white;
-  border: 7px solid #e9ecef;
-  border-radius: 100%;
-  background-color: #ffc800;
-}
-.timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-  font-size: 10px;
-  line-height: 14px;
-  margin-top: 12px;
-}
-.timeline > li.timeline-inverted > .timeline-panel {
-  float: right;
-  padding: 0 20px 0 100px;
-  text-align: left;
-}
-.timeline > li.timeline-inverted > .timeline-panel:before {
-  right: auto;
-  left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
-}
-.timeline > li.timeline-inverted > .timeline-panel:after {
-  right: auto;
-  left: -14px;
-  border-right-width: 14px;
-  border-left-width: 0;
-}
-.timeline > li:last-child {
-  margin-bottom: 0;
-}
-.timeline .timeline-heading h4, .timeline .timeline-heading .h4 {
-  margin-top: 0;
-  color: inherit;
-}
-.timeline .timeline-heading h4.subheading, .timeline .timeline-heading .subheading.h4 {
-  text-transform: none;
-}
-.timeline .timeline-body > ul,
-.timeline .timeline-body > p {
-  margin-bottom: 0;
-}
-
-@media (min-width: 768px) {
-  .timeline:before {
-    left: 50%;
-  }
-  .timeline > li {
-    min-height: 100px;
-    margin-bottom: 100px;
-  }
-  .timeline > li .timeline-panel {
-    float: left;
-    width: 41%;
-    padding: 0 20px 20px 30px;
-    text-align: right;
-  }
-  .timeline > li .timeline-image {
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    margin-left: -50px;
-  }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    font-size: 13px;
-    line-height: 18px;
-    margin-top: 16px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    float: right;
-    padding: 0 30px 20px 20px;
-    text-align: left;
-  }
-}
-@media (min-width: 992px) {
-  .timeline > li {
-    min-height: 150px;
-  }
-  .timeline > li .timeline-panel {
-    padding: 0 20px 20px;
-  }
-  .timeline > li .timeline-image {
-    width: 150px;
-    height: 150px;
-    margin-left: -75px;
-  }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    font-size: 18px;
-    line-height: 26px;
-    margin-top: 30px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 20px 20px;
-  }
-}
-@media (min-width: 1200px) {
-  .timeline > li {
-    min-height: 170px;
-  }
-  .timeline > li .timeline-panel {
-    padding: 0 20px 20px 100px;
-  }
-  .timeline > li .timeline-image {
-    width: 170px;
-    height: 170px;
-    margin-left: -85px;
-  }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    margin-top: 40px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 100px 20px 20px;
-  }
-}
-.team-member {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-.team-member img {
-  width: 14rem;
-  height: 14rem;
-  border: 0.5rem solid rgba(0, 0, 0, 0.1);
-}
-.team-member h4, .team-member .h4 {
-  margin-top: 1.5rem;
-  margin-bottom: 0;
-}
-
-.img-brand {
-  height: 2.75rem;
 }
 
 section#contact {
